@@ -1,89 +1,68 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native'
+import React, { Componenet } from 'react';
+import { StyleSheet, Text, View, ScrollView, TextInput, Button } from 'react-native-web';
 
-
-const Flex = () => {
+export default function App() {
   return (
-    <View style={styles.container1}>
-
-      <View style={styles.container1}>
-        <View style={styles.box1}>
-          <Text style={styles.title}>
-            Welcome to Spacebook
-          </Text>
-        </View>
+    <ScrollView style={styles.base}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.title}>
+          Welcome to Spacebook
+        </Text>
+        
       </View>
-
-      <View style={styles.container2}>
-        <View style={styles.box1} >
-          <Text>
-            Login here
-          </Text>
-          <TextInput
-            style={styles.input}
-            placeholder="username"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="password"
-          />
-          <Button
-            title='LOG IN'
-          />
-        </View>
+      <View style={styles.bodyContainer}>
+        <Text style={styles.heading}>
+          Login
+        </Text>
+        <TextInput style={styles.textInput} placeholder="username"/>
+        <TextInput style={styles.textInput} placeholder="password"/>
+        <Button title="Login"/>
       </View>
-
-    </View>
-
-    
+    </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  container1: {
+  base: {
     flex: 1,
-    padding: 20,
-    flexDirection: "column",
-    backgroundColor: "black"
+    padding: 30,
+    backgroundColor: 'black',
+    flexDirection: 'column',
   },
-  container2: {
-    flex: 4,
-    padding: 20,
-    flexDirection: "row"
-  },
-  box1: {
-    flex: 1,
-    padding: 5,
-    backgroundColor: "white",
-    justifyContent: 'center',
-    alignItems: 'center'
-    
-  },
-  box2: {
-    flex: 1,
-    padding: 5,
-    backgroundColor: "darkorange" 
-  },
-  box3: {
-    flex: 1,
-    padding: 5,
-    backgroundColor: "green" 
-  },
-  box4: {
-    flex: 1,
-    backgroundColor: "blue" 
-  },
-  input: {
+  headerContainer: {
+    height: 100,
     backgroundColor: 'white',
-    borderColor: "gray",
-    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    padding: 20,
     borderRadius: 10,
-    padding: 10,
+  },
+  bodyContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    padding: 20,
+    borderRadius: 10,
   },
   title: {
-    fontSize: 30
-  }
+    fontSize: 30,
+    fontWeight: 'bold',
+    padding: 30,
 
+  },
+  heading:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    padding: 20
+  },
+  textInput: {
+    height: 40,
+    textAlign: 'center',
+    margin: 6,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 10,
+  },
 });
-
-export default Flex;
