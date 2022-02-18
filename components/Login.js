@@ -58,13 +58,11 @@ export default function App() {
       </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.heading}>
-          Sign up
+          Login
         </Text>
-        <TextInput style={styles.textInput} placeholder="first name" />
-        <TextInput style={styles.textInput} placeholder="last name" />
         <TextInput style={styles.textInput} placeholder="email" />
         <TextInput style={styles.textInput} placeholder="password" />
-        <Button title="next" />
+        <Button title="Login" />
       </View>
     </ScrollView>
   );
