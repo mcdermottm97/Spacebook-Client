@@ -1,68 +1,33 @@
-import React, { Componenet } from 'react';
-import { StyleSheet, Text, View, ScrollView, TextInput, Button } from 'react-native-web';
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+import * as React from 'react';
+import { Component } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'; // lint found problem resolving path to module, disabled for this file
 
-export default function App() {
-  return (
-    <ScrollView style={styles.base}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.title}>
-          Welcome to Spacebook
-        </Text>
-        
-      </View>
-      <View style={styles.bodyContainer}>
-        <Text style={styles.heading}>
-          Login
-        </Text>
-        <TextInput style={styles.textInput} placeholder="username"/>
-        <TextInput style={styles.textInput} placeholder="password"/>
-        <Button title="Login"/>
-      </View>
-    </ScrollView>
-  );
+import HomeScreen from './components/home';
+import LoginScreen from './components/login';
+import SignupScreen from './components/signup';
+
+const Stack = createNativeStackNavigator();
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Log In">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Log In" component={LoginScreen} />
+          <Stack.Screen name="Sign Up" component={SignupScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  base: {
-    flex: 1,
-    padding: 30,
-    backgroundColor: 'black',
-    flexDirection: 'column',
-  },
-  headerContainer: {
-    height: 100,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    padding: 20,
-    borderRadius: 10,
-  },
-  bodyContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    padding: 20,
-    borderRadius: 10,
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    padding: 30,
-
-  },
-  heading:{
-    fontSize: 20,
-    fontWeight: 'bold',
-    padding: 20
-  },
-  textInput: {
-    height: 40,
-    textAlign: 'center',
-    margin: 6,
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 10,
-  },
-});
+export default App;
