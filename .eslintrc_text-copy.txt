@@ -21,7 +21,14 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
-    'react/prop-types': 'off', // disabled this eslint rule as could not find a fix
+    'react/prop-types': 'off',
+    'no-console': 0,
+    'react/prefer-stateless-function': 0,
+    'react/destructuring-assignment': 0,
+    'no-throw-literal': 0,
+    'arrow-body-style': 0,
+    'consistent-return': 0,
+    camelcase: 0,
   },
 
 };
