@@ -1,5 +1,7 @@
+/* eslint-disable react/prefer-stateless-function */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
+import 'react-native-gesture-handler';
 import * as React from 'react';
 import { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -12,18 +14,13 @@ import SignupScreen from './components/signup';
 const Stack = createNativeStackNavigator();
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Log In">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Log In" component={LoginScreen} />
-          <Stack.Screen name="Sign Up" component={SignupScreen} />
+        <Stack.Navigator initialRouteName="login">
+          <Stack.Screen name="home" component={HomeScreen} />
+          <Stack.Screen name="login" component={LoginScreen} />
+          <Stack.Screen name="signup" component={SignupScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -31,3 +28,4 @@ class App extends Component {
 }
 
 export default App;
+
